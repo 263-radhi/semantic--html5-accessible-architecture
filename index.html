@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A responsive enterprise dashboard built with semantic HTML5 and accessible components.">
+  <title>Dashboard overview | Acme</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Acme dashboard home">Acme Dashboard</a>
+    <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu</button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="pages/reports.html">Reports</a>
+      <a href="pages/settings.html">Settings</a>
+    </nav>
+    <p class="user-label">Signed in as <strong>Radhi</strong></p>
+  </header>
+  <div class="page-layout">
+    <aside class="sidebar" aria-label="Workspace sidebar">
+      <h2>Workspace</h2>
+      <nav aria-label="Workspace navigation">
+        <a href="index.html" aria-current="page">Dashboard</a>
+        <a href="pages/reports.html">Analytics</a>
+        <a href="pages/settings.html">Preferences</a>
+      </nav>
+    </aside>
+    <main id="main" class="main-content">
+      <p class="eyebrow">WORKSPACE / OVERVIEW</p>
+      <section aria-labelledby="page-title">
+        <h1 id="page-title">Dashboard overview</h1>
+        <p class="muted">A clear summary of your workspace activity.</p>
+      </section>
+      <button class="button button-primary" type="button" data-open-modal>+ Add report</button>
+      <section class="stats-grid" aria-label="Key performance indicators">
+        <article class="panel stat-card"><h2>Total users</h2><p class="stat-number">2,480</p><p class="muted">Across all workspaces</p></article>
+        <article class="panel stat-card"><h2>Active projects</h2><p class="stat-number">18</p><p class="muted">Currently in progress</p></article>
+        <article class="panel stat-card"><h2>Tasks completed</h2><p class="stat-number">864</p><p class="muted">This quarter</p></article>
+      </section>
+      <section class="panel" aria-labelledby="activity-title">
+        <div class="section-heading"><h2 id="activity-title">Recent activity</h2><a href="pages/reports.html">View reports</a></div>
+        <div class="table-scroll">
+          <table>
+            <caption>Recent project activity and current status</caption>
+            <thead><tr><th scope="col">Project</th><th scope="col">Owner</th><th scope="col">Updated</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Website redesign</th><td>Alex Morgan</td><td>Today</td><td><span class="status status-done">Completed</span></td></tr>
+              <tr><th scope="row">Customer research</th><td>Jamie Lee</td><td>Yesterday</td><td><span class="status status-progress">In progress</span></td></tr>
+              <tr><th scope="row">Accessibility review</th><td>Radhi</td><td>9 Nov 2026</td><td><span class="status status-review">In review</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="panel" aria-labelledby="feedback-title">
+        <h2 id="feedback-title">Quick feedback</h2>
+        <form id="feedback-form">
+          <div class="form-field"><label for="full-name">Full name <span aria-hidden="true">*</span></label><input id="full-name" name="fullName" autocomplete="name" required></div>
+          <div class="form-field"><label for="email">Email address <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <fieldset><legend>How was your experience?</legend>
+            <label class="choice"><input type="radio" name="rating" value="great" required> Great</label>
+            <label class="choice"><input type="radio" name="rating" value="okay"> Okay</label>
+            <label class="choice"><input type="radio" name="rating" value="needs-improvement"> Needs improvement</label>
+          </fieldset>
+          <div class="form-field"><label for="comments">Comments</label><textarea id="comments" name="comments" rows="4"></textarea></div>
+          <button class="button button-primary" type="submit">Send feedback</button>
+          <p id="feedback-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+  <footer class="site-footer"><p>© 2026 Acme Dashboard. Semantic HTML5 and accessible UI demo.</p></footer>
+  <dialog id="report-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-help">
+    <form method="dialog" class="dialog-content">
+      <div class="section-heading"><h2 id="dialog-title">Create a report</h2><button class="button" value="cancel" aria-label="Close dialog">Close</button></div>
+      <p id="dialog-help" class="muted">Enter a name for your new report.</p>
+      <label for="report-name">Report name</label><input id="report-name" name="reportName" required>
+      <div class="dialog-actions"><button class="button" value="cancel">Cancel</button><button class="button button-primary" value="confirm">Create report</button></div>
+      <p id="dialog-status" role="status" aria-live="polite"></p>
+    </form>
+  </dialog>
+</body>
+</html>
